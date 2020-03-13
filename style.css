@@ -1,0 +1,163 @@
+#outerDiv {
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+result-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+result-list>div {
+    position: relative;
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+    max-width: 200px;
+    max-height: 320px;
+}
+
+result-list>div>img {
+    max-width: inherit;
+}
+
+result-list>div>div>a {
+    color: black;
+    text-decoration: none;
+}
+
+p {
+    display: none;
+}
+
+result-list>div:hover p {
+    display: inline;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    height: auto;
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: black;
+    top: 0;
+}
+
+result-list>div>div {
+    background-color: white;
+}
+
+.prev-button {
+    float: left;
+}
+
+.next-button {
+    float: right;
+}
+
+button {
+    width: 80px;
+    height: 28px;
+}
+
+input {
+    height: 20px;
+}
+
+a:hover {
+    color: lightskyblue;
+}
+
+.form {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.second {
+    border-radius: 4em;
+    border-color: black;
+    color: black;
+}
+
+#search-word {
+    border: 2px black solid;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo>img {
+    width: 150px;
+    height: 120px;
+}
+
+@keyframes pulse_animation {
+    0% {
+        box-shadow: 0 0 0 0 rgba(254, 206, 104, 0.8)
+    }
+    100% {
+        box-shadow: 0 0 0 200px rgba(254, 206, 104, 0)
+    }
+}
+
+#pulse-wrapper {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#pulse-wrapper #pulse {
+    margin: auto;
+}
+
+#pulse-wrapper #pulse span {
+    position: absolute;
+    margin-top: -25px;
+    /* = height / 2 */
+    margin-left: -25px;
+    /* = width / 2 */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fece68;
+    animation: pulse_animation 1.3s infinite;
+}
+
+#pulse-wrapper #pulse span:nth-child(2) {
+    animation-delay: 0.3s;
+    /* Start the second wave with some delay */
+}
