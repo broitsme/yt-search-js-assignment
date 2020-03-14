@@ -4,37 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sns:700|Roboto:100&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="search.js" defer></script>
+    <script type="text/javascript" src="HTMLinjector.js" defer></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Roboto:100&display=swap" rel="stylesheet">
-    <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="search.js"></script>
-    <!-- for testin via jasmine -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine-html.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/boot.min.js"></script>
-    <!-- for testin via jasmine -->
+    <script src="http://apis.google.com/js/client.js?onload=init" defer></script>
     <title>Youtube Search</title>
 </head>
-
 <body>
-    <div class="alpha">
-        <div class="logo">
-            <img class="logo" src="youtube-logo-preview-400x400.png">
-        </div>
-        <div class="form">
-            <button class="prev-button btn second" onclick="search(this)">previous</button>
-            <div>
-                <input type="text" id="search-word" value="" placeholder="search">
-                <button class="btn second btn second" onclick="search(this)">
-          Search
-          </button>
-            </div>
-            <button class="next-button btn second" onclick="search(this) ">next</button>
-        </div>
-        <div id="outerDiv">
-        </div>
-    </div>
 </body>
 
+<!-- for testin via jasmine -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/boot.min.js"></script>
+
+<script src="toDo.js"></script>
+<!-- <script src="ToDoSpec.js"></script> -->
+
+<!-- for testin via jasmine -->
 </html>

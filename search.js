@@ -1,11 +1,11 @@
 let previousToken = null;
-firstToken = '';
+let firstToken = '';
 let nextToken = null;
-const apiKey = 'AIzaSyCTmn2VL1-pni8B6M03bQHVvPV4zp0zUD4';
 
 function init() {
+    const apiKey = 'AIzaSyCTmn2VL1-pni8B6M03bQHVvPV4zp0zUD4';
     gapi.client.setApiKey(apiKey);
-    gapi.client.load('youtube', 'v3', function() { console.log("sup? from init"); });
+    gapi.client.load('youtube', 'v3', function() { console.log("from init"); });
     return true;
 }
 
@@ -15,33 +15,18 @@ function search(control) {
         return;
     }
     currentToken = control.innerHTML === "Search" ? firstToken : (control.innerHTML === "next" ? nextToken : previousToken);
-    if (currentToken === null) {
-        currentToken = firstToken;
-    }
     let request = getYTRequestObject();
-    let outerDiv = document.getElementById('outerDiv');
-    outerDiv.innerHTML = '';
-    console.log(outerDiv);
+    let videosDiv = document.getElementById('videos');
+    videosDiv.innerHTML = '';
     request.execute(function(response) {
         let results = response.result.items;
-        let flexList = getYTValuesInDiv(results);
-        console.log(response);
+        let flexList = getYTValuesElement(results);
         nextToken = response.nextPageToken;
         previousToken = response.prevPageToken;
-        outerDiv.appendChild(flexList);
+        videosDiv.appendChild(flexList);
     });
     return true;
 }
-
-// function createLoadingElement() {
-//     let loadingOuter = document.createElement('div');
-//     loadingOuter.setAttribute('id', 'pulse-wrapper');
-//     let loadingInner = document.createElement('div');
-//     loadingInner.setAttribute('id', 'pulse');
-//     loadingInner.appendChild(document.createElement('span'));
-//     loadingInner.appendChild(document.createElement('span'));
-//     return loadingOuter;
-// }
 
 function getYTRequestObject() {
     return gapi.client.youtube.search.list({
@@ -54,7 +39,7 @@ function getYTRequestObject() {
     });
 }
 
-function getYTValuesInDiv(results) {
+function getYTValuesElement(results) {
     let flexList = document.createElement('result-list');
     for (let i = 0; i < results.length; i++) {
         let contentDiv = document.createElement("div");
@@ -75,24 +60,7 @@ function getYTValuesInDiv(results) {
         contentDiv.appendChild(titleLinkDiv);
         contentDiv.appendChild(descNode);
         contentDiv.appendChild(channelTitleNode);
-        console.log(results[i]);
         flexList.appendChild(contentDiv);
-        console.log(flexList);
     }
     return flexList;
-}
-document.addEventListener('DOMContentLoaded', test, false);
-
-function test() {
-
-    describe("search must work", () => {
-        it("search must be true", () => {
-            //assert
-            let fakeInputElement = document.createElement('search-word');
-            fakeInputElement.value = "abc";
-
-            expect(search(fakeInputElement).toBe(true));
-        });
-
-    });
 }
